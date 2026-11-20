@@ -238,7 +238,7 @@ jobs:
           load: true
           tags: deskcomm-smoke:pr
           build-args: |
-            APP_VERSION=smoke
+            APP_VERSION=${{ github.sha }}
           # Mesmo escopo de cache do build-and-push: as camadas são idênticas,
           # então na prática este job reaproveita aquele build em vez de repeti-lo.
           cache-from: type=gha,scope=deskcommcrm
