@@ -243,6 +243,20 @@ jobs:
           # então na prática este job reaproveita aquele build em vez de repeti-lo.
           cache-from: type=gha,scope=deskcommcrm
 
+      - name: Exportar imagem Linux pronta para a VPS
+        if: github.event_name == 'pull_request'
+        run: |
+          set -euo pipefail
+          docker save deskcomm-smoke:pr | gzip -1 > /tmp/aceleraos-app-image.tar.gz
+
+      - name: Anexar imagem de produção ao run
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: aceleraos-app-image-${{ github.sha }}
+          path: /tmp/aceleraos-app-image.tar.gz
+          retention-days: 1
+
       - name: O container chega a servir?
         run: |
           set -euo pipefail
