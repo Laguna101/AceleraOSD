@@ -1,0 +1,33 @@
+import { redirect } from "next/navigation";
+
+import { requireAuth, resolveActiveOrg } from "@/lib/auth/server";
+import { ROLE_RANK } from "@/lib/auth/types";
+import { ApiTokensClient } from "./_components/ApiTokensClient";
+import { traduzir } from "@/lib/i18n/dicionario";
+
+export const dynamic = "force-dynamic";
+
+export default async function ApiTokensPage() {
+  const user = await requireAuth();
+  const activeOrg = await resolveActiveOrg(user);
+  if (!activeOrg || ROLE_RANK[activeOrg.role] < ROLE_RANK.admin) {
+    redirect("/403");
+  }
+  const idioma = user.idioma;
+
+  return (
+    <div className="acelera-page flex h-full flex-col gap-6">
+      <header className="acelera-integration-header">
+        <span className="acelera-page-kicker">{traduzir("ACESSO DE SERVIÇOS", idioma)}</span>
+        <h1 className="text-2xl font-semibold tracking-tight">API Tokens</h1>
+        <p className="text-sm text-muted-foreground">
+          {traduzir("Tokens server-to-server. Plaintext exibido", idioma)}{" "}
+          <strong>{traduzir("uma única vez", idioma)}</strong> {traduzir("na criação.", idioma)}
+        </p>
+      </header>
+      <div className="acelera-token-workspace">
+        <ApiTokensClient />
+      </div>
+    </div>
+  );
+}

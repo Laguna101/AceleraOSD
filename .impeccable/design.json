@@ -1,0 +1,217 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-19T01:20:48.266Z",
+  "title": "Design System: AceleraOS",
+  "extensions": {
+    "colorMeta": {
+      "graphite": {
+        "role": "canvas",
+        "displayName": "Grafite",
+        "canonical": "#0c0d12",
+        "tonalRamp": ["#0c0d12", "#11121a", "#14151d", "#1c1e29", "#292b39"]
+      },
+      "violet": {
+        "role": "accent",
+        "displayName": "Violeta Acelera",
+        "canonical": "#b3a9ff",
+        "tonalRamp": ["#211c3c", "#393165", "#6757be", "#8171de", "#b3a9ff", "#c5bdff"]
+      },
+      "text": {
+        "role": "foreground",
+        "displayName": "Texto claro",
+        "canonical": "#f3f3fa",
+        "tonalRamp": ["#9398b1", "#b5b8cc", "#f3f3fa"]
+      },
+      "success": {
+        "role": "semantic",
+        "displayName": "Sucesso",
+        "canonical": "#70cfa1",
+        "tonalRamp": ["#163d2b", "#70cfa1", "#a4e8c2"]
+      },
+      "warning": {
+        "role": "semantic",
+        "displayName": "Atenção",
+        "canonical": "#e5b96a",
+        "tonalRamp": ["#4a3517", "#e5b96a", "#f4d8a3"]
+      },
+      "error": {
+        "role": "semantic",
+        "displayName": "Erro",
+        "canonical": "#f08b92",
+        "tonalRamp": ["#4c2228", "#f08b92", "#ffc0c3"]
+      },
+      "info": {
+        "role": "semantic",
+        "displayName": "Informação",
+        "canonical": "#91c4f0",
+        "tonalRamp": ["#1d3850", "#91c4f0", "#bcdffb"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Título principal das views operacionais."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Títulos de modais e superfícies de alta hierarquia."
+      },
+      "title": {
+        "displayName": "Título",
+        "purpose": "Títulos de cartões, colunas e grupos."
+      },
+      "body": {
+        "displayName": "Texto",
+        "purpose": "Texto padrão de controles e conteúdo operacional."
+      },
+      "label": {
+        "displayName": "Rótulo",
+        "purpose": "Badges, timestamps e microcopy."
+      },
+      "data": {
+        "displayName": "Dados",
+        "purpose": "IDs, valores, datas e números tabulares."
+      }
+    },
+    "shadows": [
+      {
+        "name": "floating",
+        "value": "0 14px 36px rgba(0,0,0,.38)",
+        "purpose": "Menus, popovers e toasts sobre o canvas escuro."
+      },
+      {
+        "name": "overlay",
+        "value": "0 24px 70px rgba(0,0,0,.5)",
+        "purpose": "Diálogos e painéis modais."
+      }
+    ],
+    "motion": [
+      {
+        "name": "fast",
+        "value": "120ms cubic-bezier(0.2, 0, 0, 1)",
+        "purpose": "Cor, borda, hover e microfeedback."
+      },
+      {
+        "name": "base",
+        "value": "200ms cubic-bezier(0.25, 0.1, 0.25, 1)",
+        "purpose": "Fades e transições comuns."
+      },
+      {
+        "name": "slow",
+        "value": "320ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Entrada de página, modal e sheet."
+      },
+      {
+        "name": "spring",
+        "value": "420ms cubic-bezier(0.34, 1.56, 0.64, 1)",
+        "purpose": "Confirmações pontuais e arraste."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "tablet",
+        "value": "768px"
+      },
+      {
+        "name": "desktop",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "A ação principal de um contexto operacional.",
+      "html": "<button class=\"ds-btn-primary\">Salvar alterações</button>",
+      "css": ".ds-btn-primary{height:36px;padding:0 16px;border:0;border-radius:9px;background:var(--color-accent);color:var(--color-accent-fg);font:700 14px/20px \"Manrope Acelera\",system-ui,sans-serif;box-shadow:0 1px 2px rgba(0,0,0,.18);transition:background 120ms cubic-bezier(.2,0,0,1),transform 120ms cubic-bezier(.2,0,0,1),box-shadow 200ms cubic-bezier(.25,.1,.25,1);cursor:pointer}.ds-btn-primary:hover{background:#6757be;box-shadow:0 4px 12px -2px rgba(0,0,0,.3)}.ds-btn-primary:active{background:#393165;transform:translateY(1px)}.ds-btn-primary:focus-visible{outline:2px solid #b3a9ff;outline-offset:2px}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Ação de apoio ao lado de uma ação principal.",
+      "html": "<button class=\"ds-btn-secondary\">Cancelar</button>",
+      "css": ".ds-btn-secondary{height:36px;padding:0 16px;border:1px solid #292b39;border-radius:9px;background:var(--color-surface-elevated);color:#f3f3fa;font:400 14px/20px \"Manrope Acelera\",system-ui,sans-serif;transition:background 120ms cubic-bezier(.2,0,0,1),border-color 120ms cubic-bezier(.2,0,0,1),transform 120ms cubic-bezier(.2,0,0,1);cursor:pointer}.ds-btn-secondary:hover{background:#211c3c;border-color:#393165}.ds-btn-secondary:active{transform:translateY(1px)}.ds-btn-secondary:focus-visible{outline:2px solid #b3a9ff;outline-offset:2px}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Campo compacto para dados e filtros operacionais.",
+      "html": "<label class=\"ds-field\"><span>Nome do contato</span><input placeholder=\"Digite o nome\"></label>",
+      "css": ".ds-field{display:grid;gap:8px;color:#b5b8cc;font:400 12px/16px \"Manrope Acelera\",system-ui,sans-serif}.ds-field input{height:36px;padding:0 12px;border:1px solid #292b39;border-radius:9px;background:var(--color-surface-elevated);color:#f3f3fa;font:400 14px/20px \"Manrope Acelera\",system-ui,sans-serif;outline:none;transition:border-color 120ms cubic-bezier(.2,0,0,1),box-shadow 120ms cubic-bezier(.2,0,0,1)}.ds-field input:focus{border-color:#b3a9ff;box-shadow:0 0 0 3px #211c3c}.ds-field input::placeholder{color:#9398b1}"
+    },
+    {
+      "name": "Interactive Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Unidade operacional clicável com elevação disciplinada.",
+      "html": "<article class=\"ds-card\"><div><strong>Campanha regional</strong><p>Leads e conversas da última semana.</p></div><span>R$ 2.480</span></article>",
+      "css": ".ds-card{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px;border:1px solid #292b39;border-radius:14px;background:var(--color-surface);color:var(--color-text);box-shadow:0 1px 2px rgba(0,0,0,.18);font-family:\"Manrope Acelera\",system-ui,sans-serif;transition:border-color 120ms cubic-bezier(.2,0,0,1),transform 200ms cubic-bezier(.16,1,.3,1),box-shadow 200ms cubic-bezier(.16,1,.3,1);cursor:pointer}.ds-card:hover{border-color:#b3a9ff;transform:translateY(-1px);box-shadow:0 4px 12px -2px rgba(0,0,0,.3),0 2px 4px -1px rgba(0,0,0,.18)}.ds-card:focus-within{outline:2px solid #b3a9ff;outline-offset:2px}.ds-card strong{display:block;font-size:16px;line-height:22px}.ds-card p{margin:4px 0 0;color:#b5b8cc;font-size:13px;line-height:18px}.ds-card>span{font:400 13px/18px \"Manrope Acelera\",system-ui,sans-serif}"
+    },
+    {
+      "name": "Accent Badge",
+      "kind": "chip",
+      "refersTo": "badge-accent",
+      "description": "Destaque curto de estado ou classificação.",
+      "html": "<span class=\"ds-badge\"><i></i>Em andamento</span>",
+      "css": ".ds-badge{display:inline-flex;align-items:center;gap:6px;height:22px;padding:0 10px;border-radius:9999px;background:rgba(167,155,255,.08);color:#c5bdff;font:400 12px/16px \"Manrope Acelera\",system-ui,sans-serif}.ds-badge i{width:6px;height:6px;border-radius:9999px;background:#b3a9ff}.ds-badge:hover{background:#393165}.ds-badge:focus-visible{outline:2px solid #b3a9ff;outline-offset:2px}"
+    },
+    {
+      "name": "Sidebar Navigation",
+      "kind": "nav",
+      "description": "Navegação AceleraOS com seleção pontual em AceleraOS.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">Inbox</a><a class=\"active\" href=\"#\">Contatos</a><a href=\"#\">Agenda</a></nav>",
+      "css": ".ds-nav{display:grid;gap:2px;width:260px;padding:12px;border:1px solid #292b39;border-radius:12px;background:#11121a;box-shadow:0 4px 12px -2px rgba(0,0,0,.3);font:400 14px/20px \"Manrope Acelera\",system-ui,sans-serif}.ds-nav a{display:flex;align-items:center;height:36px;padding:0 10px;border-radius:9px;color:#b5b8cc;text-decoration:none;transition:background 120ms cubic-bezier(.2,0,0,1),color 120ms cubic-bezier(.2,0,0,1)}.ds-nav a:hover,.ds-nav a.active{background:rgba(167,155,255,.16);color:#f0eeff}.ds-nav a.active{font-weight:700}.ds-nav a:focus-visible{outline:2px solid #b3a9ff;outline-offset:2px}"
+    },
+    {
+      "name": "Operational Row",
+      "kind": "custom",
+      "description": "Linha AceleraOS para contatos, conversas e tarefas.",
+      "html": "<div class=\"ds-row\"><div><strong>Marina Alves</strong><small>Orçamento enviado há 12 min</small></div><time>14:32</time></div>",
+      "css": ".ds-row{display:flex;align-items:center;justify-content:space-between;min-height:56px;padding:16px 20px;border:1px solid #292b39;border-radius:12px;background:#14151d;color:#f3f3fa;font-family:\"Manrope Acelera\",system-ui,sans-serif;box-shadow:0 1px 2px rgba(0,0,0,.18);transition:border-color 120ms cubic-bezier(.2,0,0,1),transform 200ms cubic-bezier(.16,1,.3,1),box-shadow 200ms cubic-bezier(.16,1,.3,1)}.ds-row:hover{border-color:#b3a9ff;transform:translateY(-1px);box-shadow:0 4px 12px -2px rgba(0,0,0,.3)}.ds-row strong{display:block;font-size:14px;line-height:20px}.ds-row small{display:block;margin-top:2px;color:#b5b8cc;font-size:13px;line-height:18px}.ds-row time{color:#9398b1;font:400 12px/16px \"Manrope Acelera\",system-ui,sans-serif}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Central de inteligência comercial",
+    "overview": "AceleraOS organiza marketing, conversas, oportunidades e atendimento em uma plataforma operacional escura e precisa. Grafite sustenta o trabalho prolongado; violeta marca foco, navegação e ações relevantes.",
+    "keyCharacteristics": [
+      "Canvas grafite com superfícies em camadas.",
+      "Violeta reservado para seleção, foco e ação.",
+      "Manrope variável carregada localmente.",
+      "Hierarquia de informações orientada ao trabalho diário.",
+      "Estados vazios, de erro e de carregamento claramente distintos."
+    ],
+    "rules": [
+      {
+        "name": "Acento com propósito",
+        "body": "Violeta identifica seleção, foco e ação; não substitui a hierarquia do conteúdo.",
+        "section": "colors"
+      },
+      {
+        "name": "Leitura direta",
+        "body": "Hierarquia vem de tamanho, peso e espaço; nomes e números continuam claros.",
+        "section": "typography"
+      },
+      {
+        "name": "Camadas funcionais",
+        "body": "Bordas e sombras separam conteúdo, menus e diálogos quando necessário.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Use grafite em canvas e superfícies.",
+      "Use violeta nos estados ativos e ações principais.",
+      "Combine cor com texto ou ícone nos estados semânticos.",
+      "Mostre erros separados de listas vazias."
+    ],
+    "donts": [
+      "Não recuperar a paleta sálvia ou a composição visual do DeskcommCRM.",
+      "Não usar dados fictícios em telas operacionais.",
+      "Não esconder falhas de integração como ausência de dados.",
+      "Não aplicar blur ou sombras sem função."
+    ]
+  }
+}

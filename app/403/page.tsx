@@ -1,0 +1,40 @@
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { createClient } from "@/lib/supabase/server";
+import { normalizarIdioma } from "@/lib/i18n/idiomas";
+import { traduzir } from "@/lib/i18n/dicionario";
+
+export default async function ForbiddenPage() {
+  // Rota fora da árvore de `app/app/layout.tsx` — sem `IdiomaProvider`, então
+  // resolve o idioma direto, como `admin/forbidden/page.tsx`. Pode chegar aqui
+  // sem sessão (link direto, robô), por isso `user` é opcional.
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  const idioma = normalizarIdioma((user?.user_metadata?.locale as string | undefined) ?? null);
+
+  return (
+    <main
+      className="acelera-system-state flex min-h-screen items-center justify-center p-6 sm:p-8"
+      data-theme="dark"
+    >
+      <Card className="acelera-system-state-panel w-full max-w-md p-8 text-center">
+        <span className="acelera-system-state-kicker">AceleraOS · Sistema</span>
+        <h1 className="text-2xl font-semibold">{traduzir("403 — Sem permissão", idioma)}</h1>
+        <p className="mt-2 text-sm text-muted-foreground">
+          {traduzir("Você não tem acesso a essa área.", idioma)}
+        </p>
+        <div className="mt-6 flex justify-center gap-2">
+          <Button asChild variant="outline">
+            <Link href="/">{traduzir("Voltar", idioma)}</Link>
+          </Button>
+          <Button asChild>
+            <Link href="/app/inbox">{traduzir("Voltar pra Inbox", idioma)}</Link>
+          </Button>
+        </div>
+      </Card>
+    </main>
+  );
+}
